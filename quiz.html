@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>U.S. Civil War Quiz</title>
+  <style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #667c3e;
+		}
+		header {
+			background-image: url(images/military.jpg);
+			color: white;
+			padding: 20px;
+			text-align: center;
+
+		}
+		nav {
+			text-align: center;
+		}
+		nav a {
+			color: #ffffff;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			border-radius: 60px;
+			background-color: #043909;
+		}
+		nav a:hover {
+			background-color: #01811f;
+			color: white;
+			transition-delay: 0.1s;
+		}
+    .quiz-box {
+      max-width: 600px;
+      margin: auto;
+      background:#566934;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+			background-color: #043909;
+			color: white;
+			border-radius: 15px;
+			border: none;
+    }
+		button:hover {
+			background-color: #01811f;
+		}
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+	<header>
+		<h1>
+		American Civil War
+	</h1>
+	<nav>
+    <a href="index.html">Home</a>
+    <a href="causes.html">Causes</a>
+    <a href="battles.html">Major Battles</a>
+    <a href="leaders.html">Key Figures</a>
+    <a href="aftermath.html">Aftermath</a>
+		<a href="works-cited.html">Works Cited</a>
+		<a href="quiz.html">Quiz</a>
+  </nav>
+	</header>
+
+  <div class="quiz-box">
+    <h2>Civil War Quiz</h2>
+
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1. What years did the U.S. Civil War take place?</p>
+        <input type="radio" name="q1" value="a"> 1775–1783<br>
+        <input type="radio" name="q1" value="b"> 1861–1865<br>
+        <input type="radio" name="q1" value="c"> 1914–1918
+      </div>
+
+      <div class="question">
+        <p>2. Who was the president of the Union during the Civil War?</p>
+        <input type="radio" name="q2" value="a"> George Washington<br>
+        <input type="radio" name="q2" value="b"> Abraham Lincoln<br>
+        <input type="radio" name="q2" value="c"> Ulysses S. Grant
+      </div>
+
+      <div class="question">
+        <p>3. What was the main issue that led to the Civil War?</p>
+        <input type="radio" name="q3" value="a"> Taxes<br>
+        <input type="radio" name="q3" value="b"> Slavery<br>
+        <input type="radio" name="q3" value="c"> Foreign invasion
+      </div>
+
+      <div class="question">
+        <p>4. Which side did Robert E. Lee fight for?</p>
+        <input type="radio" name="q4" value="a"> Union<br>
+        <input type="radio" name="q4" value="b"> Confederacy<br>
+        <input type="radio" name="q4" value="c"> Neither
+      </div>
+
+      <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function gradeQuiz() {
+      let score = 0;
+
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b',
+        q4: 'b'
+      };
+
+      for (let question in answers) {
+        const selected = document.querySelector(`input[name="${question}"]:checked`);
+        if (selected && selected.value === answers[question]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById('result');
+      result.textContent = `You scored ${score} out of 4.`;
+    }
+  </script>
+
+</body>
+</html>
